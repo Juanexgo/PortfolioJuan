@@ -13,14 +13,14 @@ export interface Experience {
   role: string;
   company: string;
   period: string;
-  type: "Remote" | "On-site" | "Hybrid" | "";
+  type: string;
   description: string;
 }
 
 export interface Profile {
   name: string;
   title: string;
-  level: "Junior" | "Mid-level" | "Senior";
+  level: string;
   bio: string;
   email: string;
   github: string;

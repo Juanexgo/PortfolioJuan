@@ -129,7 +129,7 @@ export default function AdminSettingsPage() {
               id="settings-level"
               value={profile.level}
                   onChange={(e) =>
-                    setProfile({ ...profile, level: e.target.value as Profile["level"] })
+                    setProfile({ ...profile, level: e.target.value })
                   }
             >
               <option value="Junior">Junior</option>
