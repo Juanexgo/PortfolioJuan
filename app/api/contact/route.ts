@@ -1,11 +1,7 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
 import { readJson, writeJson } from "@/lib/fs-utils";
 import { Message } from "@/types/message";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-const FROM_EMAIL = process.env.FROM_EMAIL || "onboarding@resend.dev";
 const TO_EMAIL = "canulpasosjuanjose@gmail.com";
 
 export async function POST(request: Request) {
@@ -19,8 +15,12 @@ export async function POST(request: Request) {
   }
 
   try {
+    const { Resend } = await import("resend");
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    const fromEmail = process.env.FROM_EMAIL || "onboarding@resend.dev";
+
     await resend.emails.send({
-      from: FROM_EMAIL,
+      from: fromEmail,
       to: TO_EMAIL,
       subject: `New contact message from ${name}`,
       html: `
@@ -39,23 +39,6 @@ export async function POST(request: Request) {
       `,
       replyTo: email,
     });
-
-    const messages = readJson<Message[]>("messages.json");
-    const newMessage: Message = {
-      id: Date.now().toString(),
-      name,
-      email,
-      message: content,
-      createdAt: new Date().toISOString(),
-      read: false,
-    };
-    messages.unshift(newMessage);
-    writeJson("messages.json", messages);
-
-    return NextResponse.json(
-      { success: true, message: "Message sent successfully" },
-      { status: 201 }
-    );
   } catch (error) {
     console.error("Failed to send email:", error);
     return NextResponse.json(
@@ -63,4 +46,21 @@ export async function POST(request: Request) {
       { status: 500 }
     );
   }
+
+  const messages = readJson<Message[]>("messages.json");
+  const newMessage: Message = {
+    id: Date.now().toString(),
+    name,
+    email,
+    message: content,
+    createdAt: new Date().toISOString(),
+    read: false,
+  };
+  messages.unshift(newMessage);
+  writeJson("messages.json", messages);
+
+  return NextResponse.json(
+    { success: true, message: "Message sent successfully" },
+    { status: 201 }
+  );
 }
