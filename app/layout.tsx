@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import profileData from "@/data/profile.json";
 import ThreeBackground from "./components/ThreeBackground";
 import Header from "./components/Header";
@@ -22,6 +23,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <SpeedInsights />
       </body>
     </html>
   );
