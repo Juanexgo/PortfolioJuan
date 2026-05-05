@@ -19,13 +19,16 @@ export default function AdminLoginPage() {
         const response = await fetch("/api/admin/auth", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
+          credentials: "same-origin",
           body: JSON.stringify({ password }),
         });
 
         if (response.ok) {
           router.push("/admin/projects");
+          router.refresh();
         } else {
-          setError("Incorrect password");
+          const data = await response.json();
+          setError(data.error || "Incorrect password");
         }
       } catch {
         setError("An error occurred. Please try again.");

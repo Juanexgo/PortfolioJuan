@@ -2,21 +2,18 @@ import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "admin123";
-
-function isValidPassword(password: string): boolean {
-  return password === ADMIN_PASSWORD;
-}
+const COOKIE_NAME = "admin-auth";
 
 export async function POST(request: Request) {
   const { password } = await request.json();
 
-  if (!password || !isValidPassword(password)) {
+  if (!password || password !== ADMIN_PASSWORD) {
     return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
   }
 
   const cookieStore = await cookies();
-  cookieStore.set("admin-auth", "true", {
-    httpOnly: true,
+  cookieStore.set(COOKIE_NAME, "authenticated", {
+    httpOnly: false,
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
     maxAge: 60 * 60 * 24,
@@ -28,6 +25,6 @@ export async function POST(request: Request) {
 
 export async function DELETE() {
   const cookieStore = await cookies();
-  cookieStore.delete("admin-auth");
+  cookieStore.delete(COOKIE_NAME);
   return NextResponse.json({ success: true });
 }
