@@ -140,7 +140,7 @@ export default function AdminExperiencePage() {
                   id="exp-type"
                   value={formData.type}
                   onChange={(e) =>
-                    setFormData({ ...formData, type: e.target.value })
+                    setFormData({ ...formData, type: e.target.value as Experience["type"] })
                   }
                 >
                   <option value="">Select type</option>

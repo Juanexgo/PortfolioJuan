@@ -128,12 +128,9 @@ export default function AdminSettingsPage() {
             <select
               id="settings-level"
               value={profile.level}
-              onChange={(e) =>
-                setProfile({
-                  ...profile,
-                  level: e.target.value as Profile["level"],
-                })
-              }
+                  onChange={(e) =>
+                    setProfile({ ...profile, level: e.target.value as Profile["level"] })
+                  }
             >
               <option value="Junior">Junior</option>
               <option value="Mid-level">Mid-level</option>
