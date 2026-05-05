@@ -1,0 +1,44 @@
+[
+  {
+    "title": "E-Commerce Platform",
+    "description": "Full-stack e-commerce solution with cart management, payment processing via Stripe, and an admin dashboard for inventory and order management.",
+    "tags": [
+      "Next.js",
+      "TypeScript",
+      "Prisma",
+      "Stripe"
+    ],
+    "image": "https://placehold.co/600x400/1a1a2e/eaeaea?text=E-Commerce",
+    "github": "#",
+    "live": "#",
+    "id": "1"
+  },
+  {
+    "id": "2",
+    "title": "Task Management App",
+    "description": "Collaborative task management tool with real-time updates, drag-and-drop interface, and team workspaces using WebSockets.",
+    "tags": [
+      "React",
+      "Node.js",
+      "Socket.io",
+      "MongoDB"
+    ],
+    "image": "https://placehold.co/600x400/16213e/eaeaea?text=Task+App",
+    "github": "#",
+    "live": "#"
+  },
+  {
+    "id": "3",
+    "title": "Weather Dashboard",
+    "description": "Interactive weather visualization app with location-based forecasts, animated weather maps, and historical data analysis.",
+    "tags": [
+      "Astro",
+      "Tailwind CSS",
+      "API",
+      "Charts"
+    ],
+    "image": "https://placehold.co/600x400/0f3460/eaeaea?text=Weather",
+    "github": "#",
+    "live": "#"
+  }
+]

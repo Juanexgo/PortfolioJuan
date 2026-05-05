@@ -1,0 +1,28 @@
+{
+  "frontend": [
+    "React",
+    "Next.js",
+    "React Native",
+    "Astro",
+    "TypeScript",
+    "JavaScript",
+    "Angular"
+  ],
+  "mobile": [
+    "Flutter",
+    "Swift",
+    "React Native"
+  ],
+  "backend": [
+    "Node.js",
+    "Python",
+    "C++"
+  ],
+  "tools": [
+    "Git",
+    "Docker",
+    "Firebase",
+    "AWS",
+    "Figma"
+  ]
+}

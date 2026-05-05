@@ -1,0 +1,18 @@
+[
+  {
+    "id": "1",
+    "role": "Full Stack Developer",
+    "company": "Immersive Softworks",
+    "period": "2024 - Present",
+    "type": "Remote",
+    "description": "Developing and maintaining web applications across the full stack. Building responsive UIs with React and Next.js, creating RESTful APIs, and collaborating with cross-functional teams in an agile environment."
+  },
+  {
+    "id": "2",
+    "role": "Developer - IT Department",
+    "company": "IMSS",
+    "period": "2023 - 2024",
+    "type": "On-site",
+    "description": "Worked on network maintenance, web page development, and IT infrastructure support. Gained hands-on experience with systems administration and internal web applications."
+  }
+]
